@@ -1,0 +1,18 @@
+<div class="todo-container">
+    <h1 class="todo-title">{{ title() }}</h1>
+    <ul class="todo-list">
+        @for(todo of todoListSorted(); track $index) {
+        <li class="todo-item" [class.completed]="todo.completed">
+            <label class="todo-label">
+                <input 
+                    type="checkbox" 
+                    class="todo-checkbox" 
+                    [checked]="todo.completed" 
+                    (change)="toggleTodo(todo.id)"
+                />
+                <span class="todo-text">{{ todo.title }}</span>
+            </label>
+        </li>
+        }
+    </ul>
+</div>
